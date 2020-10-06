@@ -13,4 +13,4 @@ const flowerSchema = new mongoose.Schema({
   timestamps: true
 })
 
-module.exports = mongoose.model('Flower', flowerSchema)
+module.exports = flowerSchema
