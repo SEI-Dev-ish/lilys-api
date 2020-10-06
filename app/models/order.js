@@ -1,22 +1,16 @@
 const mongoose = require('mongoose')
+const flowerSchema = require('./flower')
 
 const orderSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true
-  },
-  quanity: {
-    type: Number,
-    required: true
-  },
-  price: {
-    type: Number,
-    required: true
-  },
-  completed: {
+
+  isComplete: {
     type: Boolean,
     required: true
   },
+  totalPrice: {
+    type: Number
+  },
+  flower: [flowerSchema],
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
