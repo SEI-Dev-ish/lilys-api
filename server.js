@@ -51,7 +51,6 @@ app.use(replaceToken)
 // register passport authentication middleware
 app.use(auth)
 
-
 // add `express.json` middleware which will parse JSON requests into
 // JS objects before they reach the route files.
 // The method `.use` sets up middleware for the Express application

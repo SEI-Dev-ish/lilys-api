@@ -33,21 +33,21 @@ router.get('/orders', requireToken, (req, res, next) => {
   const userId = req.user._id
   Order.find({owner: userId})
     .populate('owner')
-    .then(orders => {
+    .then(order => {
       // `orders` will be an array of Mongoose documents
       // we want to convert each one to a POJO, so we use `.map` to
       // apply `.toObject` to each one
-      return orders.map(order => order.toObject())
+      return order.map(order => order.toObject())
     })
     // respond with status 200 and JSON of the orders
-    .then(orders => res.status(200).json({ orders: orders }))
+    .then(order => res.status(200).json({ order }))
     // if an error occurs, pass it to the handler
     .catch(next)
 })
 
 // SHOW
 // GET /orders/5a7db6c74d55bc51bdf39793
-router.get('/orders/:id', requireToken, (req, res, next) => {
+router.get('/order/:id', requireToken, (req, res, next) => {
   // req.params.id will be set based on the `:id` in the route
   Order.findById(req.params.id)
     .then(handle404)
@@ -59,11 +59,12 @@ router.get('/orders/:id', requireToken, (req, res, next) => {
 
 // CREATE
 // POST /orders
-router.post('/orders', requireToken, (req, res, next) => {
+router.post('/order', requireToken, (req, res, next) => {
   // set owner of new order to be current user
   req.body.order.owner = req.user.id
+  const orderData = req.body.order
 
-  Order.create(req.body.order)
+  Order.create(orderData)
     // respond to succesful `create` with status 201 and JSON of new "order"
     .then(order => {
       res.status(201).json({ order: order.toObject() })
