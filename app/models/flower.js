@@ -8,6 +8,10 @@ const flowerSchema = new mongoose.Schema({
   price: {
     type: Number,
     required: true
+  },
+  orderQuantity: {
+    type: Number,
+    required: true
   }
 }, {
   timestamps: true
