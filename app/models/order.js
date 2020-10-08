@@ -10,6 +10,9 @@ const orderSchema = new mongoose.Schema({
   totalPrice: {
     type: Number
   },
+  quantity: {
+    type: Number
+  },
   flower: [flowerSchema],
   owner: {
     type: mongoose.Schema.Types.ObjectId,

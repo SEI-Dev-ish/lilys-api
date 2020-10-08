@@ -94,6 +94,7 @@ router.patch('/orders/:id', requireToken, removeBlanks, (req, res, next) => {
     })
     // if that succeeded, return 204 and no JSON
     .then(() => res.sendStatus(204))
+  // console.log(res)
     // if an error occurs, pass it to the handler
     .catch(next)
 })
