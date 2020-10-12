@@ -32,4 +32,4 @@ up and running, the styling of the site was then made.
 ![ERD](https://media.git.generalassemb.ly/user/30427/files/a6066f00-0736-11eb-8bc4-613b00c56e9c)
 ---
 ## CLIENT
-[CLIENT SITE]('')
+[CLIENT SITE]('https://sei-dev-ish.github.io/lilys-client/')
